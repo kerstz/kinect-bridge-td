@@ -1,0 +1,7 @@
+*.o
+*.obj
+*.dll
+kinect_bridge_server
+sdk_reference/
+*.kin
+nohup.out
