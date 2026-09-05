@@ -18,7 +18,8 @@ echo "== [3/6] TouchDesigner C++ SDK headers (from your local TD install) =="
 mkdir -p "$ROOT/sdk_reference"
 TD_DIR=$(ls -d "$TD_PREFIX/drive_c/Program Files"/TouchDesigner* 2>/dev/null | head -n1)
 SRC="$TD_DIR/Samples/CPlusPlus/CPUMemoryTOP"
-cp -f "$SRC/TOP_CPlusPlusBase.h" "$SRC/CPlusPlus_Common.h" "$ROOT/sdk_reference/"
+TD_HDR_DIR=$(find "$TD_DIR" -name "BitMaskFlags.h" -exec dirname {} \; 2>/dev/null | head -n1)
+cp -f "$TD_HDR_DIR"/*.h "$ROOT/sdk_reference/"
 
 echo "== [4/6] Build server + plugin =="
 "$ROOT/scripts/build.sh"
